@@ -16,6 +16,19 @@ public class HammingDist {
 		word2 = string2;
 		File file= new File("Mesonet.txt");
 		
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String newWord = br.readLine();
+		newWord = br.readLine();
+		newWord = br.readLine();
+		newWord = br.readLine();
 		
+        while(newWord != null){
+        	wordBank.add(newWord.substring(1, 5));
+        	newWord = br.readLine();
+        }
+        
+        br.close();//
+	}
+
 	
 }
