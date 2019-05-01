@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class HammingDist {
 	protected ArrayList<String> wordBank = new ArrayList<String>();
@@ -92,6 +93,13 @@ public class HammingDist {
 				distance4Array.add(wordBank.get(i));
 			}
 		}
+	}
+	protected ArrayList<String> wordBank2 = new ArrayList<String>();
+	Scanner input = new Scanner(System.in);
+	String newStation = input.nextLine();
+	int character = newStation.length();
+	if(character == 4) {
+		wordBank2.add(newStation);
 	}
 	
 }
