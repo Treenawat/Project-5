@@ -78,20 +78,7 @@ public class HammingDist {
 				distance4 +=1;
 			}
 			
-			//Increase arrayList
-			if(count == 1) {
-				distance1Array.add(wordBank.get(i));
-			}
-			if(count == 2) {
-				distance2Array.add(wordBank.get(i));
-			}
-			if(count == 3) {
-				distance3Array.add(wordBank.get(i));
-			}
-			if(count == 4) {
-				distance4Array.add(wordBank.get(i));
-			}
-		}
+
 	}
 	
 }
