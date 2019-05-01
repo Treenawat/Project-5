@@ -10,4 +10,12 @@ public class HammingDist {
 	private String word2;
 	private int HammDist = 0;
 
+	//Constructor reading from Mesonet.txt
+	public HammingDist(String string, String string2) throws IOException{
+		word1 = string;
+		word2 = string2;
+		File file= new File("Mesonet.txt");
+		
+		
+	
 }
