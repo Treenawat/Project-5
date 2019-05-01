@@ -29,12 +29,18 @@ public class HammingDist {
 	}
 	
 	public void calculate() {
+		ArrayList<String> distance1Array = new ArrayList();
+		ArrayList<String> distance2Array = new ArrayList();
+		ArrayList<String> distance3Array = new ArrayList();
+		ArrayList<String> distance4Array = new ArrayList();
+		
 		//Each Character
 		String outPut = " ";
-		int oneWrong = 0;
-		int twoWrong = 0;
-		int threeWrong = 0;
-		int allWrong = 0;
+		int distance0 = 0;
+		int distance1 = 0;
+		int distance2 = 0;
+		int distance3 = 0;
+		int distance4 = 0;
 		
 		//word
 		for(int i = 0; i < wordBank.size(); i++) {
@@ -55,17 +61,35 @@ public class HammingDist {
 				count += 1;
 			}
 			
+			//Added Distance
 			if(count == 1) {
-				oneWrong += 1;
+				distance0 += 1;
+			}
+			if(count == 1) {
+				distance1 += 1;
 			}
 			if(count == 2) {
-				twoWrong += 1;
+				distance2 += 1;
 			}
 			if(count == 3) {
-				threeWrong += 1;
+				distance3 += 1;
 			}
 			if(count == 4) {
-				allWrong +=1;
+				distance4 +=1;
+			}
+			
+			//Increase arrayList
+			if(count == 1) {
+				distance1Array.add(wordBank.get(i));
+			}
+			if(count == 2) {
+				distance2Array.add(wordBank.get(i));
+			}
+			if(count == 3) {
+				distance3Array.add(wordBank.get(i));
+			}
+			if(count == 4) {
+				distance4Array.add(wordBank.get(i));
 			}
 		}
 	}
