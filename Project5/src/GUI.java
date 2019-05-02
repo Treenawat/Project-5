@@ -187,7 +187,7 @@ public class GUI {
 		
 		//Start RightSide
 		JPanel Title = new JPanel();
-		JLabel Prompt1 = new JLabel("Multiply calculator");
+		JLabel Prompt1 = new JLabel("<html><br/>Multiply calculator<br/>(Firstbox * Second box)<html>");
 		Title.add(Prompt1);
 		rightSide.add(Title);
 		
@@ -217,7 +217,7 @@ public class GUI {
 		
 		//start second calculator
 		JPanel Title2 = new JPanel();
-		JLabel Prompt2 = new JLabel("Divider calculator");
+		JLabel Prompt2 = new JLabel("<html><br/>Divider calculator<br/>(Firstbox / Second box)<html>");
 		Title2.add(Prompt2);
 		rightSide.add(Title2);
 				
@@ -247,22 +247,23 @@ public class GUI {
 		
 		Multiply.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int number1 = Integer.parseInt(operand1.getText());
-				int number2 = Integer.parseInt(operand2.getText());
-				int realAnswer = hammingDist.calculateMultiply(number1, number2);
+				double number1 = Double.parseDouble(operand1.getText());
+				double number2 = Double.parseDouble(operand2.getText());
+				double realAnswer = hammingDist.calculateMultiply(number1, number2);
 				rightAnswer2.setText("" + realAnswer);
 			}
 		});
 		
 		Divide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int number3 = Integer.parseInt(operand3.getText());
-				int number4 = Integer.parseInt(operand4.getText());
+				double number3 = Double.parseDouble(operand3.getText());
+				double number4 = Double.parseDouble(operand4.getText());
 				double realAnswer2 = hammingDist.calculatorDivide(number3, number4);
 				rightAnswer4.setText("" + realAnswer2);
 			}
 		});
 		
+		//Finishing
 		HammingDistance.setLayout(new GridLayout(1, 2));
 		HammingDistance.add(leftSide);
 		HammingDistance.add(rightSide);

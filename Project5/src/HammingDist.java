@@ -146,14 +146,15 @@ public class HammingDist {
 	}
 	
 	//Multiply calculator
-	public int calculateMultiply(int number1, int number2) {
-		int realAnswer = number1 * number2;
+	public double calculateMultiply(double number1, double number2) {
+		double realAnswer = number1 * number2;
 		return realAnswer;
 	}
 
 	//Divide calculator
-	public double calculatorDivide(int number3, int number4) {
-		double realAnswer2 = (double)number3 / (double)number4;
+	public double calculatorDivide(double number3, double number4) {
+		double realAnswer2 = number3 / number4;
 		return realAnswer2;
 	}
+
 }
