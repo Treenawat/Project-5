@@ -23,5 +23,8 @@ public class GUI {
 	public static void main(String[] args) throws IOException {
 		new GUI();
 	}		
+	public GUI() throws IOException  {
+		
+	}
 	
 }
