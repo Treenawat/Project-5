@@ -93,6 +93,12 @@ public class GUI {
 		row5.add(prompt2);
 		row5.add(box);
 		leftSide.add(row5);
+		
+		//row 6
+		JPanel row6 = new JPanel(new BorderLayout());
+		JButton prompt3 = new JButton("Calculate HD");
+		row6.add(prompt3, BorderLayout.WEST);
+		leftSide.add(row6);
 	}
 	
 }
