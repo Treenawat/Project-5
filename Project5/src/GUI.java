@@ -85,6 +85,14 @@ public class GUI {
 		stationList.setEditable(true);
 		row4.add(showList);
 		leftSide.add(row4);
+		
+		//Add box that contain station to compare for row5
+		JPanel row5 = new JPanel(new GridLayout(1, 2));
+		JLabel prompt2 = new JLabel("Compare with:");
+		JComboBox box = new JComboBox(newWords.toArray());
+		row5.add(prompt2);
+		row5.add(box);
+		leftSide.add(row5);
 	}
 	
 }
