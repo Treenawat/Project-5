@@ -133,7 +133,7 @@ public class GUI {
 		row8.add(input2);
 		leftSide.add(row8);		
 		
-		//Add action listeners for buttons and other GUI components
+		//Add action listeners for buttons
 		input1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String value = input1.getText();
