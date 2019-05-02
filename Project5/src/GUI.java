@@ -1,9 +1,17 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
 import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -64,7 +72,7 @@ public class GUI {
 		
 		//Add JText area for row4
 		JPanel row4 = new JPanel(new GridLayout(1, 1));
-		row4.setSize(300, 500);
+		row4.setSize(300, 1000);
 		JTextArea stationList = new JTextArea();
 		JScrollPane showList = new JScrollPane (stationList);
 		stationList.setEditable(true);
@@ -164,21 +172,54 @@ public class GUI {
 		addStation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String newWord = input2.getText().toUpperCase();
-				if(newWord.length() == 4) {
+				if(newWord.length() == 4 && !newWords.contains(newWord)) {
 					hammingDist.addStation(newWord);
 					Object[] newStations = hammingDist.getWordBank().toArray();
 					DefaultComboBoxModel DCM = new DefaultComboBoxModel(newStations);
 					box.setModel(DCM);
 				}
+				else {
+					System.out.println("Choose new station");
+				}
 			}
 			
 		});
+		
+		//Start RightSide
+		JPanel Title = new JPanel();
+		JLabel Prompt1 = new JLabel("Multiply calculator");
+		Title.add(Prompt1);
+		rightSide.add(Title);
+		
+		//row2
+		JPanel Multiplier = new JPanel(new GridLayout(1, 2));
+		JTextField operand1 = new JTextField();
+		JTextField operand2 = new JTextField();
+		operand1.setEditable(true);
+		Multiplier.add(operand1);
+		Multiplier.add(operand2);
+		rightSide.add(Multiplier);
+		
+		//row3
+		JPanel multiplyButton = new JPanel(new BorderLayout());
+		JButton Multiply = new JButton("Multiply");
+		multiplyButton.add(Multiply);
+		rightSide.add(multiplyButton);
+		
+		//row4
+		JPanel multiplyAnswer = new JPanel(new GridLayout(1, 2));
+		JLabel rightAnswer1 = new JLabel("      Answer");
+		JTextField rightAnswer2 = new JTextField();
+		rightAnswer2.setEditable(false);
+		multiplyAnswer.add(rightAnswer1);
+		multiplyAnswer.add(rightAnswer2);
+		rightSide.add(multiplyAnswer);
 		
 		HammingDistance.setLayout(new GridLayout(1, 2));
 		HammingDistance.add(leftSide);
 		HammingDistance.add(rightSide);
 		HammingDistance.setTitle("Hamming Distance");
-		HammingDistance.setSize(550, 600);
+		HammingDistance.setSize(600, 800);
 		HammingDistance.setVisible(true);
 		HammingDistance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
