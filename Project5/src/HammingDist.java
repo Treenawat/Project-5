@@ -11,8 +11,7 @@ public class HammingDist {
 	private int HammDist = 0;
 
 	//Constructor reading from Mesonet.txt
-	public HammingDist(String string) throws IOException{
-		word = string;
+	public HammingDist() throws IOException{
 		File file= new File("Mesonet.txt");
 		
 		BufferedReader br = new BufferedReader(new FileReader(file));
@@ -94,12 +93,15 @@ public class HammingDist {
 			}
 		}
 	}
-	protected ArrayList<String> wordBank2 = new ArrayList<String>();
-	Scanner input = new Scanner(System.in);
-	String newStation = input.nextLine();
-	int character = newStation.length();
-	if(character == 4) {
-		wordBank2.add(newStation);
+//	protected ArrayList<String> wordBank2 = new ArrayList<String>();
+//	Scanner input = new Scanner(System.in);
+//	String newStation = input.nextLine();
+//	int character = newStation.length();
+//	if(character == 4) {
+//		wordBank2.add(newStation);
+	//}
+	public ArrayList<String> getWordBank() {
+		return wordBank;
 	}
 	
 }

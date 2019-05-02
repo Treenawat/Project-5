@@ -28,6 +28,20 @@ public class GUI {
 		
 		JPanel rightSide = new JPanel(new GridLayout(8,1));
 		JPanel leftSide = new JPanel(new GridLayout(8,1));
+		
+		HammingDist hammingDist = new HammingDist();
+		ArrayList<String> newWords = hammingDist.getWordBank();
+		
+		//Start With Row1: Enter Hamming Dist: "input"
+		JPanel row1 = new JPanel(new GridLayout(1, 2));
+		JLabel prompt1 = new JLabel("Enter Hamming Dist:");
+		JTextField input1 = new JTextField();
+		input1.setText("1");
+		row1.add(prompt1);
+		row1.add(input1);
+		leftSide.add(row1);
+	
+		
 	}
 	
 }
