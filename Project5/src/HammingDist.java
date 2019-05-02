@@ -144,4 +144,14 @@ public class HammingDist {
 		return chardiff;
 	
 	}
+
+	public int calculateMultiply(int number1, int number2) {
+		int realAnswer = number1 * number2;
+		return realAnswer;
+	}
+
+	public double calculatorDivide(int number3, int number4) {
+		double realAnswer2 = (double)number3 / (double)number4;
+		return realAnswer2;
+	}
 }

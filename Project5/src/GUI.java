@@ -215,6 +215,55 @@ public class GUI {
 		multiplyAnswer.add(rightAnswer2);
 		rightSide.add(multiplyAnswer);
 		
+		//Start RightSide
+		JPanel Title2 = new JPanel();
+		JLabel Prompt2 = new JLabel("Divider calculator");
+		Title2.add(Prompt2);
+		rightSide.add(Title2);
+				
+		//row2
+		JPanel Divider = new JPanel(new GridLayout(1, 2));
+		JTextField operand3 = new JTextField();
+		JTextField operand4 = new JTextField();
+		operand1.setEditable(true);
+		Divider.add(operand3);
+		Divider.add(operand4);
+		rightSide.add(Divider);
+				
+		//row3
+		JPanel divideButton = new JPanel(new BorderLayout());
+		JButton Divide = new JButton("Divide");
+		divideButton.add(Divide);
+		rightSide.add(divideButton);
+				
+		//row4
+		JPanel divideAnswer = new JPanel(new GridLayout(1, 2));
+		JLabel rightAnswer3 = new JLabel("      Answer");
+		JTextField rightAnswer4 = new JTextField();
+		rightAnswer4.setEditable(false);
+		divideAnswer.add(rightAnswer3);
+		divideAnswer.add(rightAnswer4);
+		rightSide.add(divideAnswer);
+		
+		Multiply.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int number1 = Integer.parseInt(operand1.getText());
+				int number2 = Integer.parseInt(operand2.getText());
+				int realAnswer = hammingDist.calculateMultiply(number1, number2);
+				rightAnswer2.setText("" + realAnswer);
+			}
+		});
+		
+		Divide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int number3 = Integer.parseInt(operand3.getText());
+				int number4 = Integer.parseInt(operand4.getText());
+				double realAnswer2 = hammingDist.calculatorDivide(number3, number4);
+				rightAnswer4.setText("" + realAnswer2);
+			}
+		});
+		
+		
 		HammingDistance.setLayout(new GridLayout(1, 2));
 		HammingDistance.add(leftSide);
 		HammingDistance.add(rightSide);
