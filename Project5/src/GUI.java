@@ -56,6 +56,26 @@ public class GUI {
 	    });
 		leftSide.add(row2);
 		
+		//Add Distant slider for row2
+		JSlider row2 = new JSlider(1, 4, 1);
+	    row2.setMajorTickSpacing(1);
+		row2.setMinorTickSpacing(1);
+	    row2.setPaintLabels(true);
+		row2.setPaintTicks(true);
+	    row2.addChangeListener(new ChangeListener() {
+	    	public void DistantChange(ChangeEvent event) {
+	    		messageBox1.setText("\n\nSlider Set To: " + row2.getValue());
+	            int value = row2.getValue();
+	            input1.setText(Integer.toString(value));
+	          }
+	    });
+		leftSide.add(row2);
+		
+		//Add Show Station button for row3
+		JPanel row3 = new JPanel(new BorderLayout());
+		JButton showStation = new JButton("Show Station");
+		row3.add(showStation, BorderLayout.WEST);
+		leftSide.add(row3);
 
 	}
 	
