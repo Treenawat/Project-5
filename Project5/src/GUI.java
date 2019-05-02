@@ -94,11 +94,45 @@ public class GUI {
 		row5.add(box);
 		leftSide.add(row5);
 		
-		//row 6
+		//Add button for calculating for row6
 		JPanel row6 = new JPanel(new BorderLayout());
 		JButton prompt3 = new JButton("Calculate HD");
 		row6.add(prompt3, BorderLayout.WEST);
 		leftSide.add(row6);
+		
+		//Add Distance difference for row7
+		JPanel row7 = new JPanel(new GridLayout(5, 2));
+		JLabel prompt4 = new JLabel("Distance 0");
+		JLabel prompt5 = new JLabel("Distance 1");
+		JLabel prompt6 = new JLabel("Distance 2");
+		JLabel prompt7 = new JLabel("Distance 3");
+		JLabel prompt8 = new JLabel("Distance 4");
+		JTextField answer0 = new JTextField();
+		answer0.setEditable(false);
+		JTextField answer1 = new JTextField();
+		answer1.setEditable(false);
+		JTextField answer2 = new JTextField();
+		answer2.setEditable(false);
+		JTextField answer3 = new JTextField();
+		answer3.setEditable(false);
+		JTextField answer4 = new JTextField();
+		answer4.setEditable(false);
+		
+			//Add all above to row7
+			row7.add(Distance0);
+			row7.add(answer0);
+			row7.add(Distance1);
+			row7.add(answer1);
+			row7.add(Distance2);
+			row7.add(answer2);
+			row7.add(Distance3);
+			row7.add(answer3);
+			row7.add(Distance4);
+			row7.add(answer4);
+			
+		leftSide.add(row7);
+		
+		
 	}
 	
 }
