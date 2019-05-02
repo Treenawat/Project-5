@@ -76,7 +76,15 @@ public class GUI {
 		JButton showStation = new JButton("Show Station");
 		row3.add(showStation, BorderLayout.WEST);
 		leftSide.add(row3);
-
+		
+		//Add JText area for row4
+		JPanel row4 = new JPanel(new GridLayout(1, 1));
+		row4.setSize(300, 400);
+		JTextArea stationList = new JTextArea();
+		JScrollPane showList = new JScrollPane (stationList);
+		stationList.setEditable(true);
+		row4.add(showList);
+		leftSide.add(row4);
 	}
 	
 }
