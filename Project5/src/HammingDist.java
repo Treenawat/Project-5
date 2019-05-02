@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class HammingDist {
 	protected ArrayList<String> wordBank = new ArrayList<String>();
-	ArrayList<String> wordBank2 = new ArrayList<String>();
+	public ArrayList<String> wordBank2 = new ArrayList<String>();
 	private String word;
 	
 	//Constructor reading from Mesonet.txt
