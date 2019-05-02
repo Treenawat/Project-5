@@ -215,13 +215,13 @@ public class GUI {
 		multiplyAnswer.add(rightAnswer2);
 		rightSide.add(multiplyAnswer);
 		
-		//Start RightSide
+		//start second calculator
 		JPanel Title2 = new JPanel();
 		JLabel Prompt2 = new JLabel("Divider calculator");
 		Title2.add(Prompt2);
 		rightSide.add(Title2);
 				
-		//row2
+		//row6
 		JPanel Divider = new JPanel(new GridLayout(1, 2));
 		JTextField operand3 = new JTextField();
 		JTextField operand4 = new JTextField();
@@ -230,13 +230,13 @@ public class GUI {
 		Divider.add(operand4);
 		rightSide.add(Divider);
 				
-		//row3
+		//row7
 		JPanel divideButton = new JPanel(new BorderLayout());
 		JButton Divide = new JButton("Divide");
 		divideButton.add(Divide);
 		rightSide.add(divideButton);
 				
-		//row4
+		//row8
 		JPanel divideAnswer = new JPanel(new GridLayout(1, 2));
 		JLabel rightAnswer3 = new JLabel("      Answer");
 		JTextField rightAnswer4 = new JTextField();
@@ -262,7 +262,6 @@ public class GUI {
 				rightAnswer4.setText("" + realAnswer2);
 			}
 		});
-		
 		
 		HammingDistance.setLayout(new GridLayout(1, 2));
 		HammingDistance.add(leftSide);
