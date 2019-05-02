@@ -26,8 +26,8 @@ public class GUI {
 	public GUI() throws IOException  {
 		JFrame HammingDistance = new JFrame();
 		
-		JPanel rightSide = new JPanel(new GridLayout(8,1));
 		JPanel leftSide = new JPanel(new GridLayout(8,1));
+		JPanel rightSide = new JPanel(new GridLayout(8,1));
 		
 		HammingDist hammingDist = new HammingDist();
 		ArrayList<String> newWords = hammingDist.getWordBank();
@@ -37,6 +37,7 @@ public class GUI {
 		JLabel prompt1 = new JLabel("Enter Hamming Dist:");
 		JTextField input1 = new JTextField();
 		input1.setText("1");
+		input1.setEditable(false);
 		row1.add(prompt1);
 		row1.add(input1);
 		leftSide.add(row1);
@@ -48,23 +49,7 @@ public class GUI {
 	    row2.setPaintLabels(true);
 		row2.setPaintTicks(true);
 	    row2.addChangeListener(new ChangeListener() {
-	    	public void DistantChange(ChangeEvent event) {
-	    		messageBox1.setText("\n\nSlider Set To: " + row2.getValue());
-	            int value = row2.getValue();
-	            input1.setText(Integer.toString(value));
-	          }
-	    });
-		leftSide.add(row2);
-		
-		//Add Distant slider for row2
-		JSlider row2 = new JSlider(1, 4, 1);
-	    row2.setMajorTickSpacing(1);
-		row2.setMinorTickSpacing(1);
-	    row2.setPaintLabels(true);
-		row2.setPaintTicks(true);
-	    row2.addChangeListener(new ChangeListener() {
-	    	public void DistantChange(ChangeEvent event) {
-	    		messageBox1.setText("\n\nSlider Set To: " + row2.getValue());
+	    	public void stateChanged(ChangeEvent event) {
 	            int value = row2.getValue();
 	            input1.setText(Integer.toString(value));
 	          }
@@ -79,7 +64,7 @@ public class GUI {
 		
 		//Add JText area for row4
 		JPanel row4 = new JPanel(new GridLayout(1, 1));
-		row4.setSize(300, 400);
+		row4.setSize(300, 500);
 		JTextArea stationList = new JTextArea();
 		JScrollPane showList = new JScrollPane (stationList);
 		stationList.setEditable(true);
@@ -119,20 +104,83 @@ public class GUI {
 		answer4.setEditable(false);
 		
 			//Add all above to row7
-			row7.add(Distance0);
+			row7.add(prompt4);
 			row7.add(answer0);
-			row7.add(Distance1);
+			row7.add(prompt5);
 			row7.add(answer1);
-			row7.add(Distance2);
+			row7.add(prompt6);
 			row7.add(answer2);
-			row7.add(Distance3);
+			row7.add(prompt7);
 			row7.add(answer3);
-			row7.add(Distance4);
+			row7.add(prompt8);
 			row7.add(answer4);
 			
 		leftSide.add(row7);
 		
+		//Add Jbutton and input box
+		JPanel row8 = new JPanel(new GridLayout(1, 2));
+		JButton addStation = new JButton("Add Station");
+		JTextArea input2 = new JTextArea(1, 1);
+		row8.add(addStation);
+		row8.add(input2);
+		leftSide.add(row8);		
 		
+		//Add action listeners for buttons and other GUI components
+		input1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String value = input1.getText();
+				row2.setValue(Integer.parseInt(value));
+				}
+			});
+		
+		
+		showStation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				stationList.setText("");
+				int value = row2.getValue();
+				String sameDistance = "";
+				String selectedStation = (String) box.getSelectedItem();
+				ArrayList<String> list = hammingDist.getSameDistance(selectedStation, value);
+				Collections.sort(list);
+				for(String s : list) {
+					sameDistance += s + "\n";
+				}
+				stationList.setText(sameDistance);
+			}
+			});
+		
+		prompt3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String input = (String) box.getSelectedItem();
+				int[] chardiff = hammingDist.characterDifference(input);
+				answer0.setText("" + chardiff[0]);
+				answer1.setText("" + chardiff[1]);
+				answer2.setText("" + chardiff[2]);
+				answer3.setText("" + chardiff[3]);
+				answer4.setText("" + chardiff[4]);
+			}
+		});
+		
+		addStation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String newWord = input2.getText().toUpperCase();
+				if(newWord.length() == 4) {
+					hammingDist.addStation(newWord);
+					Object[] newStations = hammingDist.getWordBank().toArray();
+					DefaultComboBoxModel DCM = new DefaultComboBoxModel(newStations);
+					box.setModel(DCM);
+				}
+			}
+			
+		});
+		
+		HammingDistance.setLayout(new GridLayout(1, 2));
+		HammingDistance.add(leftSide);
+		HammingDistance.add(rightSide);
+		HammingDistance.setTitle("Hamming Distance");
+		HammingDistance.setSize(550, 600);
+		HammingDistance.setVisible(true);
+		HammingDistance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 }
