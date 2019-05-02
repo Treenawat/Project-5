@@ -24,7 +24,10 @@ public class GUI {
 		new GUI();
 	}		
 	public GUI() throws IOException  {
+		JFrame HammingDistance = new JFrame();
 		
+		JPanel rightSide = new JPanel(new GridLayout(8,1));
+		JPanel leftSide = new JPanel(new GridLayout(8,1));
 	}
 	
 }
